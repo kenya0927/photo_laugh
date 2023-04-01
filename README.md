@@ -1,24 +1,29 @@
-# README
+# フォトラフ！(photoとlaughterの造語)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+取っておく必要は無いけど何故か消せない写真、SNSには上げられない写真、なんで撮ったか思い出せない写真など、フォルダの「肥やし」になっている写真をお題とともに投稿し、他のユーザーに「ボケて」もらう大喜利アプリ
 
-Things you may want to cover:
+### テーマを選んだ理由
+自分自身も取っておく必要は無いけど何故か消せない写真があります。そのようなフォルダの肥やしになってしまっている写真たちに輝きを与えたいと思い、このテーマにしました。
+写真がお題とともに投稿され、他の人がその写真に対してボケて笑える事ができたら、肥やしになってしまっていた写真にも、価値がつくと思います。
 
-* Ruby version
+### ターゲットユーザ
+SNS等には投稿できないけど、なぜか消せない写真を持っている方、大喜利やボケることが好きな方
 
-* System dependencies
+### 主な利用シーン
+大喜利したいなと思ったとき、写真を見返していてなぜか消せないなと思った画像を見つけたとき
 
-* Configuration
+## 設計書
 
-* Database creation
 
-* Database initialization
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+-
+-
