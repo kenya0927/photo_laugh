@@ -1,0 +1,7 @@
+<% @topics.each do |topic| %>
+<div>
+  <%= image_tag topic.image %>
+  <p>お題：<%= topic.title %></p>
+  <p>ニックネーム：<%= topic.user.name %></p>
+</div>
+<% end %>

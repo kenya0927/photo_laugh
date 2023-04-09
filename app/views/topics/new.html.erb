@@ -1,0 +1,9 @@
+<h1>画像投稿フォーム</h1>
+  <%= form_with model: @topic do |f| %>
+    <h4>画像</h4>
+      <%= f.file_field :image, accept: "image/*" %>
+    <h4>お題</h4>
+      <%= f.text_field :title %>
+
+      <%= f.submit '投稿' %>
+  <% end %>
