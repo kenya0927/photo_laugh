@@ -1,7 +1,7 @@
 <h2>投稿詳細</h2>
 
 <div>
-  <%= image_tag @topic.image %>
+  <%= image_tag @topic.image,size: "300x300" %>
   <p>お題：<%= @topic.title %></p>
   <p>ニックネーム：<%= @topic.user.name %></p>
   <p>投稿日：<%= @topic.created_at.strftime('%Y/%m/%d') %></p>
