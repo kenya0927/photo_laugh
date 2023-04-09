@@ -15,8 +15,12 @@ SNS等には投稿できないけど、なぜか消せない写真を持って�
 大喜利したいなと思ったとき、写真を見返していてなぜか消せないなと思った画像を見つけたとき。
 
 ## 設計書
--
--
+- WBS : https://docs.google.com/spreadsheets/d/1JpcKftUXkIp6B9UytoySmqibJ1k_Iv_a6c8yQMy3GkQ/edit?usp=sharing
+- Uiflow : https://drive.google.com/file/d/1yZvtcuT_AX2SHp9cwOOYDhF57NI3q8wU/view?usp=sharing
+- ワイヤーフレーム : https://drive.google.com/file/d/1gp7db9iKcTELtAWqh1xJvjp4JbDWFDYy/view?usp=sharing
+- ER図 : https://drive.google.com/file/d/1hF1HoRUULfMLX8Jpy-js2mvr_FQLtwNh/view?usp=sharing
+- テーブル定義書 : https://docs.google.com/spreadsheets/d/1YuO5Yf9hhdtYGatDCPeCHlm7q8PhFVKwBEJ0scWGWHo/edit?usp=sharing
+- アプリケーション詳細設計 : https://docs.google.com/spreadsheets/d/1VH82mY8C__OEnKK7J0FWvC1n2vAZQPKWYXR2fnJpvP4/edit?usp=sharing
 
 
 
@@ -28,5 +32,5 @@ SNS等には投稿できないけど、なぜか消せない写真を持って�
 - IDE：Cloud9
 
 ## 使用素材
--
+- PAKUTASO : https://www.pakutaso.com/
 -
