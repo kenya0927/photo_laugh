@@ -1,0 +1,9 @@
+<h2>ユーザー情報編集</h2>
+
+<%= form_with model: @user do |f| %>
+
+ニックネーム<%= f.text_field :name %>
+メールアドレス<%= f.email_field :email %>
+<%= f.submit "変更する" %>
+
+<% end %>
