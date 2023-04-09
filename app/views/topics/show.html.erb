@@ -1,2 +1,13 @@
-<h1>Topics#show</h1>
-<p>Find me in app/views/topics/show.html.erb</p>
+<h2>投稿詳細</h2>
+
+<div>
+  <%= image_tag @topic.image %>
+  <p>お題：<%= @topic.title %></p>
+  <p>ニックネーム：<%= @topic.user.name %></p>
+  <p>投稿日：<%= @topic.created_at.strftime('%Y/%m/%d') %></p>
+
+  <% if @topic.user == current_user %>
+    <%= link_to "編集", edit_topic_path(@topic) %>
+    <%= link_to "削除", topic_path(@topic), method: :delete %>
+  <% end %>
+</div>

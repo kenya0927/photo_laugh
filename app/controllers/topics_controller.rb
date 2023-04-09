@@ -8,7 +8,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
     @topic.user_id = current_user.id
     @topic.save
-    redirect_to topics_path
+    redirect_to topic_path(@topic)
   end
 
   def index
@@ -16,12 +16,23 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @topic = Topic.find(params[:id])
   end
 
   def edit
+    @topic = Topic.find(params[:id])
+  end
+
+  def update
+    topic = Topic.find(params[:id])
+    topic.update(topic_params)
+    redirect_to topic_path(topic.id)
   end
 
   def destroy
+    @topic = Topic.find(params[:id])
+    @topic.destroy
+    redirect_to topics_path
   end
 
   private

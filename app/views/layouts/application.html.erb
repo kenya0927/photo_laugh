@@ -20,7 +20,7 @@
         <%= link_to "投稿する", new_topic_path %>
       </li>
       <li>
-        <%= link_to "投稿一覧"%>
+        <%= link_to "投稿一覧",topics_path %>
       </li>
       <li>
         <%= link_to "マイページ"%>
@@ -30,7 +30,7 @@
       </li>
     <% else %>
       <li>
-        <%= link_to "投稿一覧"%>
+        <%= link_to "投稿一覧",topics_path %>
       </li>
       <li>
         <%= link_to "新規登録", new_user_registration_path %>
