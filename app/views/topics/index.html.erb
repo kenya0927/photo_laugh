@@ -9,5 +9,6 @@
     <% end %>
   </div>
   <p>ニックネーム：<%= topic.user.name %></p>
+  <%= link_to "#{topic.topic_comments.count} コメント", topic_path(topic.id) %>
 </div>
 <% end %>

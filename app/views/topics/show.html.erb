@@ -11,3 +11,21 @@
     <%= link_to "削除", topic_path(@topic), method: :delete %>
   <% end %>
 </div>
+
+<div>
+  コメント件数：<%= @topic.topic_comments.count %>
+  <% @topic.topic_comments.each do |topic_comment| %>
+  <%= topic_comment.user.name %>
+  <%= topic_comment.created_at.strftime('%Y/%m/%d') %><%= topic_comment.comment %>
+   <% if topic_comment.user == current_user %>
+      <%= link_to "削除", topic_topic_comment_path(topic_comment.topic, topic_comment), method: :delete %>
+   <% end %>
+  <% end %>
+</div>
+
+<div>
+  <%= form_with model: [@topic, @topic_comment] do |f| %>
+  <%= f.text_area :comment, rows: '5', placeholder: "ボケを投稿する！" %>
+  <%= f.submit "ボケる" %>
+  <% end %>
+</div>

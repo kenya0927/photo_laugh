@@ -5,7 +5,9 @@ class TopicsController < ApplicationController
   end
 
   def create
+    # 投稿データを@topicに格納
     @topic = Topic.new(topic_params)
+    # 投稿データにログイン中のユーザーのidをもたせる
     @topic.user_id = current_user.id
     @topic.save
     redirect_to topic_path(@topic)
@@ -17,6 +19,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @topic_comment = TopicComment.new
   end
 
   def edit

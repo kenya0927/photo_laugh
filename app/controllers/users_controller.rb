@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # ユーザーの投稿を全て取得
     @topics = @user.topics
   end
 
