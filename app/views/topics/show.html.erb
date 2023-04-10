@@ -17,6 +17,23 @@
   <% @topic.topic_comments.each do |topic_comment| %>
   <%= topic_comment.user.name %>
   <%= topic_comment.created_at.strftime('%Y/%m/%d') %><%= topic_comment.comment %>
+
+ <%if user_signed_in? %>
+    <% if Like.find_by(user_id: current_user.id, topic_id: @topic.id, topic_comment_id: topic_comment.id) %>
+        <%= link_to  topic_topic_comment_like_path(@topic, topic_comment, topic_comment.likes), {class: "like-link", method: :delete } do %>
+          <i class="fas fa-grin-squint-tears unlike-btn"></i>
+        <% end %>
+        <p class="count"><%= topic_comment.likes.count %></p>
+    <% else %>
+        <%= link_to topic_topic_comment_likes_path(@topic, topic_comment), {class: "like-link", method: :post } do %>
+          <i class="far fa-grin-squint-tears like-btn"></i>
+        <% end %>
+        <p class="count"><%= topic_comment.likes.count %></p>
+    <% end %>
+  <% else %>
+      <i class="fas fa-grin-squint-tears unlike-btn"></i><p class="count"><%= topic_comment.likes.count %></p>
+  <% end %>
+
    <% if topic_comment.user == current_user %>
       <%= link_to "削除", topic_topic_comment_path(topic_comment.topic, topic_comment), method: :delete %>
    <% end %>

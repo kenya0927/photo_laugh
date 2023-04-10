@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :users,only:[:show,:edit,:update]
 
   resources :topics,only:[:new,:create,:index,:show,:edit,:update,:destroy] do
-    resources :topic_comments,only:[:create,:destroy]
+    resources :topic_comments,only:[:create,:destroy] do
+      resources :likes,only:[:create,:destroy]
+    end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
