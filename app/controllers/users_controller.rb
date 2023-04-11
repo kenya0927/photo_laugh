@@ -12,9 +12,15 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params
-    )
+    @user.update(user_params)
     redirect_to user_path(@user)
+  end
+
+  # ユーザーがいいねした記事の取得
+  def likes
+    @user = User.find(params[:id])
+    likes= Like.where(user_id: @user.id).pluck(:topic_id)
+    @like_topics = Topic.find(likes)
   end
 
   private

@@ -13,25 +13,27 @@
 </div>
 
 <div>
-  コメント件数：<%= @topic.topic_comments.count %>
-  <% @topic.topic_comments.each do |topic_comment| %>
-  <%= topic_comment.user.name %>
+  ボケ件数：<%= @topic.topic_comments.count %>
+  <% @topic.topic_comments.each do |topic_comment| %><br>
+  <%= topic_comment.user.name %><br>
   <%= topic_comment.created_at.strftime('%Y/%m/%d') %><%= topic_comment.comment %>
 
+ <!--ログインしていないユーザーにはいいね数のみ表示-->
  <%if user_signed_in? %>
     <% if Like.find_by(user_id: current_user.id, topic_id: @topic.id, topic_comment_id: topic_comment.id) %>
         <%= link_to  topic_topic_comment_like_path(@topic, topic_comment, topic_comment.likes), {class: "like-link", method: :delete } do %>
-          <i class="fas fa-grin-squint-tears unlike-btn"></i>
+         <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
         <% end %>
-        <p class="count"><%= topic_comment.likes.count %></p>
+        <p><%= topic_comment.likes.count %>いいね！</p>
     <% else %>
         <%= link_to topic_topic_comment_likes_path(@topic, topic_comment), {class: "like-link", method: :post } do %>
-          <i class="far fa-grin-squint-tears like-btn"></i>
+          <i class="fas fa-heart" aria-hidden="true"></i>
         <% end %>
-        <p class="count"><%= topic_comment.likes.count %></p>
+        <p><%= topic_comment.likes.count %>いいね！</p>
     <% end %>
   <% else %>
-      <i class="fas fa-grin-squint-tears unlike-btn"></i><p class="count"><%= topic_comment.likes.count %></p>
+      <!--<i class="fas fa-heart" aria-hidden="true"></i>-->
+      <p><%= topic_comment.likes.count %>いいね！</p>
   <% end %>
 
    <% if topic_comment.user == current_user %>

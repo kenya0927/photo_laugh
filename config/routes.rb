@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "homes#top"
 
-  resources :users,only:[:show,:edit,:update]
+  resources :users,only:[:show,:edit,:update] do
+    # いいねした投稿を取得するため
+    member do
+      get :likes
+    end
+  end
 
   resources :topics,only:[:new,:create,:index,:show,:edit,:update,:destroy] do
     resources :topic_comments,only:[:create,:destroy] do

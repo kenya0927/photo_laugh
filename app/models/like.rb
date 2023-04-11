@@ -4,6 +4,7 @@ class Like < ApplicationRecord
   belongs_to :topic
   belongs_to :topic_comment
 
-  validates_uniqueness_of :comment_id, scope: :user_id
+  # ログインしているユーザーが1つのコメントに対して1度しかいいねできないようする
+  validates_uniqueness_of :topic_comment_id, scope: :user_id
 
 end
