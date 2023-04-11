@@ -15,6 +15,11 @@
   <body>
     <header>
       <div>フォトラフ！</div>
+
+      <%= form_with url: search_path,method: :get do |f| %>
+      <%= f.text_field :word,placeholder: "検索したいキーワードを入力" %>
+      <%= f.submit "検索" %>
+      <% end %>
     <% if user_signed_in? %>
       <li>
         <%= link_to "投稿する", new_topic_path %>
