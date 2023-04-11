@@ -1,6 +1,6 @@
 class TopicComment < ApplicationRecord
 
-  validates :topic_comment, presence: true
+  validates :comment, presence: true
 
   belongs_to :user
   belongs_to :topic

@@ -1,14 +1,15 @@
 <h2>検索結果</h2>
 
-<% @topics.each do |topic| %>
+<% if @topics.any? %>
 
-<div>
-<%= image_tag topic.image,size: "200x200" %>
-<%= link_to topic_path(topic.id) do %>
-<%= topic.title %>
-<% end %>
-<%= topic.user.name %>
-</div>
+  <% @topics.each do |topic| %>
+    <%= image_tag topic.image,size: "200x200" %>
+    <%= link_to topic_path(topic.id) do %>
+    <%= topic.title %>
+    <% end %>
+    <%= topic.user.name %>
+  <% end %>
 
-
+<% else %>
+  <p>該当するものはありません。</p>
 <% end %>
