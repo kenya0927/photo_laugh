@@ -1,5 +1,7 @@
 <h2>投稿フォーム</h2>
 
+ <%= render 'layouts/errors', obj: @topic %>
+
   <%= form_with model: @topic do |f| %>
     <h4>画像</h4>
       <%= f.file_field :image, accept: "image/*" %>

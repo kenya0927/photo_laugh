@@ -7,17 +7,4 @@
   <%=link_to"いいね一覧",likes_user_path(@user) %>
 </div>
 
-<div>
-  <% @topics.each do |topic| %>
- <div>
-  <%= image_tag topic.image,size: "300x300" %>
-  <div>
-    <%= link_to topic_path(topic.id) do %>
-    お題：<%= topic.title %>
-    <% end %>
-  </div>
-  <p>ニックネーム：<%= topic.user.name %></p>
-  <%= link_to "#{topic.topic_comments.count} コメント", topic_path(topic.id) %>
- </div>
-  <% end %>
-</div>
+<%= render 'topics/index', topics: @topics %>
