@@ -1,16 +1,19 @@
 class TopicsController < ApplicationController
 
+  before_action :authenticate_user!,only:[:edit,:update,:destroy]
+
   def new
     @topic = Topic.new
   end
 
   def create
-    # 投稿データを@topicに格納
-    @topic = Topic.new(topic_params)
-    # 投稿データにログイン中のユーザーのidをもたせる
-    @topic.user_id = current_user.id
-    @topic.save
+    @topic = Topic.new(topic_params)   #投稿データを@topicに格納
+    @topic.user_id = current_user.id   #投稿データにログイン中のユーザーのidをもたせる
+    if @topic.save
     redirect_to topic_path(@topic)
+    else
+    render :new
+    end
   end
 
   def index
@@ -28,8 +31,11 @@ class TopicsController < ApplicationController
 
   def update
     topic = Topic.find(params[:id])
-    topic.update(topic_params)
+    if topic.update(topic_params)
     redirect_to topic_path(topic.id)
+    else
+    render :edit
+    end
   end
 
   def destroy

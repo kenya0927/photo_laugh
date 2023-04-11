@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "homes#top"
 
+  #検索機能
   get 'search', to: "topics#search",as: 'search'
 
   resources :users,only:[:show,:edit,:update] do
-    # いいねした投稿を取得するため
+    #いいねした投稿を取得するため
     member do
       get :likes
     end
