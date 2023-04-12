@@ -1,5 +1,7 @@
 <h2>投稿詳細</h2>
 
+<%= render 'layouts/errors',obj: @topic_comment %>
+
 <div>
   <%= image_tag @topic.image,size: "300x300" %>
   <p>お題：<%= @topic.title %></p>

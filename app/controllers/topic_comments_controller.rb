@@ -6,9 +6,14 @@ class TopicCommentsController < ApplicationController
     topic = Topic.find(params[:topic_id])
     comment = current_user.topic_comments.new(topic_comment_params)   #ログインしているユーザーによって作成されたコメントの生成
     comment.topic_id = topic.id   #コメントと投稿の関連付け
-    comment.save
+   if comment.save
     flash[:notice] = "コメントの投稿に成功しました"
     redirect_to topic_path(topic)
+   else
+    @topic = Topic.find(params[:topic_id])
+    @topic_comment = TopicComment.new
+    render 'topics/show'
+   end
   end
 
   def destroy

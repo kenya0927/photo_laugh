@@ -37,7 +37,6 @@ class TopicsController < ApplicationController
        flash[:notice] = "更新に成功しました"
     redirect_to topic_path(@topic)
     else
-       flash[:alert] = "更新に失敗しました"
     render :edit
     end
   end
