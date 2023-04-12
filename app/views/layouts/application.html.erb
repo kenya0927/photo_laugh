@@ -14,12 +14,17 @@
 
   <body>
     <header>
-      <div>フォトラフ！</div>
-
+     <div>フォトラフ！</div>
      <%= render 'layouts/searchs' %>
      <%= render 'layouts/header' %>
-  </header>
+    </header>
+
+      <div>
+      <%= render 'layouts/notice' %>
+      </div>
+
     <%= yield %>
+
     <footer>
      <%= render 'layouts/footer' %>
     </footer>

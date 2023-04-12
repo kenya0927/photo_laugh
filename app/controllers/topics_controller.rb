@@ -10,8 +10,10 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)   #投稿データを@topicに格納
     @topic.user_id = current_user.id   #投稿データにログイン中のユーザーのidをもたせる
     if @topic.save
+       flash[:notice] = "投稿に成功しました"
     redirect_to topic_path(@topic)
     else
+      flash[:alert] = "投稿に失敗しました"
     render :new
     end
   end
@@ -32,8 +34,10 @@ class TopicsController < ApplicationController
   def update
     topic = Topic.find(params[:id])
     if topic.update(topic_params)
+       flash[:notice] = "更新に成功しました"
     redirect_to topic_path(topic.id)
     else
+       flash[:alert] = "更新に失敗しました"
     render :edit
     end
   end
