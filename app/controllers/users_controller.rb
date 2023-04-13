@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @topics = @user.topics   #ユーザーの投稿を全て取得
+    @topics = @user.topics.page(params[:page])   #ユーザーの投稿を全て取得
   end
 
   def edit
