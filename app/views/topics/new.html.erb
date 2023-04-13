@@ -1,12 +1,19 @@
-<h2>投稿フォーム</h2>
-
- <%= render 'layouts/errors', obj: @topic %>
-
-  <%= form_with model: @topic do |f| %>
-    <h4>画像</h4>
-      <%= f.file_field :image, accept: "image/*" %>
-    <h4>お題</h4>
-      <%= f.text_field :title %>
-
-      <%= f.submit '投稿' %>
-  <% end %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center mb-4">投稿フォーム</h2>
+      <%= render 'layouts/errors', obj: @topic %>
+      <%= form_with model: @topic, html: { class: "mt-4" } do |f| %>
+        <div class="form-group">
+          <h4 class="mb-2">画像</h4>
+          <%= f.file_field :image, accept: "image/*", class: "form-control-file" %>
+        </div>
+        <div class="form-group">
+          <h4 class="mb-2">お題</h4>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <%= f.submit '投稿', class: "btn btn-primary btn-lg btn-block mt-4" %>
+      <% end %>
+    </div>
+  </div>
+</div>
