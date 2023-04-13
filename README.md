@@ -33,4 +33,4 @@ SNS等には投稿できないけど、なぜか消せない写真を持って�
 
 ## 使用素材
 - PAKUTASO : https://www.pakutaso.com/
--
+- Hatchful : https://www.shopify.com/jp/tools/logo-maker
