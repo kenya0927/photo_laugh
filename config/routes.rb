@@ -12,6 +12,11 @@ Rails.application.routes.draw do
       get :likes
     end
   end
+  
+  # ゲストユーザーログイン
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
 
   resources :topics,only:[:new,:create,:index,:show,:edit,:update,:destroy] do
     resources :topic_comments,only:[:create,:destroy] do

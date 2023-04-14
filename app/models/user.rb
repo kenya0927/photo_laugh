@@ -12,4 +12,12 @@ class User < ApplicationRecord
   has_many :topic_comments,dependent: :destroy
   has_many :likes
 
+  # ゲストユーザー機能
+  def self.guest
+    find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64  # ランダムな文字列の生成
+      user.name = "guestuser"
+    end
+  end
+
 end

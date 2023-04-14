@@ -20,7 +20,10 @@
   </div>
 
   <div class="mb-4">
+    <!--ゲストユーザーは編集ボタンを表示しない-->
+    <% if @user.name != "guestuser" %>
     <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-primary" %>
+    <% end %>
     <%= link_to "いいね一覧", likes_user_path(@user), class: "btn btn-secondary" %>
   </div>
   <h2 class="mb-4 text-center w-25 h4 bg-light d-inline-block">自分の投稿</h2>

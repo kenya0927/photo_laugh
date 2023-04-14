@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :ensure_guest_user, only: [:edit]
 
   def show
     @user = User.find(params[:id])
@@ -37,6 +38,15 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name,:email)
+  end
+
+  # ゲストユーザーのユーザー編集画面へのURL直打ちを防ぐ
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.name == "guestuser"
+       flash[:notice] ="ゲストユーザーはプロフィール編集画面へ遷移できません。"
+       redirect_to root_path
+    end
   end
 
 end
