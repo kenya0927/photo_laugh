@@ -7,6 +7,11 @@ ja:
      topic:
       title: お題
       image: 画像
+    models:
+     user: ユーザー
+    attributes:
+     user:
+      name: 名前
     devise:
      sessions:
       user:
