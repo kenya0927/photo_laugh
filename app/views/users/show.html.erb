@@ -1,10 +1,28 @@
-<h2>マイページ</h2>
+<div class="container">
+  <h2 class="mb-4">マイページ</h2>
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-3">ニックネーム</h5>
+          <p class="card-text"><%= @user.name %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-3">メールアドレス</h5>
+          <p class="card-text"><%= @user.email %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div>
-  ニックネーム<%= @user.name %>
-  メールアドレス<%= @user.email %>
-  <%= link_to "編集",edit_user_path(@user) %>
-  <%=link_to"いいね一覧",likes_user_path(@user) %>
+  <div class="mb-4">
+    <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-primary" %>
+    <%= link_to "いいね一覧", likes_user_path(@user), class: "btn btn-secondary" %>
+  </div>
+  <h2 class="mb-4">自分の投稿</h2>
+  <%= render 'topics/index', topics: @topics %>
 </div>
-
-<%= render 'topics/index', topics: @topics %>
