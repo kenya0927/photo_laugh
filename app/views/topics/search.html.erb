@@ -1,15 +1,24 @@
-<h2>検索結果</h2>
+<h2 class="text-center mb-4">検索結果</h2>
 
-<% if @topics.any? %>
-
-  <% @topics.each do |topic| %>
-    <%= image_tag topic.image,size: "200x200" %>
-    <%= link_to topic_path(topic.id) do %>
-    <%= topic.title %>
+<div class="row justify-content-center">
+  <% if @topics.any? %>
+    <% @topics.each do |topic| %>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <%= link_to topic_path(topic.id) do %>
+            <%= image_tag topic.image, class: "card-img-top", alt: "image", style: "height: 300px; object-fit: cover;" %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title mb-3"><%= topic.title %></h5>
+            <p class="card-text">ニックネーム：<%= topic.user.name %></p>
+            <%= link_to "#{topic.topic_comments.count} コメント", topic_path(topic.id), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
     <% end %>
-    <%= topic.user.name %>
+  <% else %>
+    <div class="col-md-6">
+      <p class="text-center">該当するものはありません。</p>
+    </div>
   <% end %>
-
-<% else %>
-  <p>該当するものはありません。</p>
-<% end %>
+</div>
