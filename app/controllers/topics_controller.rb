@@ -47,10 +47,12 @@ class TopicsController < ApplicationController
     redirect_to topics_path
   end
 
+  # キーワード検索
   def search
     search_word = params[:word]
     @topics = Topic.where("title LIKE ?","%#{search_word}%")
   end
+
 
   private
 

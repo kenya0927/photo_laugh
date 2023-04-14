@@ -1,4 +1,5 @@
- <%= form_with model: [topic, topic_comment] do |f| %>
-  <%= f.text_area :comment, rows: '5', placeholder: "ボケを投稿する！" %>
-  <%= f.submit "ボケる" %>
+<%= form_with model: [topic, topic_comment], class: "my-4" do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "ボケを投稿する！", class: "form-control mb-2" %>
+    <%= f.submit "ボケる", class: "btn btn-primary" %>
   <% end %>
+</div>

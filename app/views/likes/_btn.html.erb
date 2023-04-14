@@ -1,26 +1,29 @@
- ボケ件数：<%= topic.topic_comments.count %>
-  <% topic.topic_comments.each do |topic_comment| %><br>
-  <%= topic_comment.user.name %><br>
-  <%= topic_comment.created_at.strftime('%Y/%m/%d') %><%= topic_comment.comment %>
+ <% topic.topic_comments.each do |topic_comment| %>
+    <div class="card my-4">
+      <div class="card-body">
+        <h5 class="card-title"><%= topic_comment.user.name %></h5>
+        <p class="card-text"><%= topic_comment.comment %></p>
+        <p class="card-text text-muted"><%= topic_comment.created_at.strftime('%Y/%m/%d') %></p>
 
- <!--ログインしていないユーザーにはいいね数のみ表示-->
-  <%if user_signed_in? %>
-    <% if Like.find_by(user_id: current_user.id, topic_id: topic.id, topic_comment_id: topic_comment.id) %>
-        <%= link_to  topic_topic_comment_like_path(topic, topic_comment, topic_comment.likes), {class: "like-link", method: :delete } do %>
-         <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+        <% if user_signed_in? %>
+          <% if Like.find_by(user_id: current_user.id, topic_id: topic.id, topic_comment_id: topic_comment.id) %>
+            <%= link_to topic_topic_comment_like_path(topic, topic_comment, topic_comment.likes), { class: "like-link", method: :delete } do %>
+              <i class="fas fa-heart text-danger" aria-hidden="true"></i>
+            <% end %>
+            <span class="ml-2"><%= topic_comment.likes.count %> いいね！</span>
+          <% else %>
+            <%= link_to topic_topic_comment_likes_path(topic, topic_comment), { class: "like-link", method: :post } do %>
+              <i class="fas fa-heart" aria-hidden="true"></i>
+            <% end %>
+            <span class="ml-2"><%= topic_comment.likes.count %> いいね！</span>
+          <% end %>
+        <% else %>
+          <span class="ml-2"><%= topic_comment.likes.count %> いいね！</span>
         <% end %>
-        <p><%= topic_comment.likes.count %>いいね！</p>
-    <% else %>
-        <%= link_to topic_topic_comment_likes_path(topic, topic_comment), {class: "like-link", method: :post } do %>
-          <i class="fas fa-heart" aria-hidden="true"></i>
-        <% end %>
-        <p><%= topic_comment.likes.count %>いいね！</p>
-    <% end %>
-  <% else %>
-      <p><%= topic_comment.likes.count %>いいね！</p>
-  <% end %>
 
-   <% if topic_comment.user == current_user %>
-      <%= link_to "削除", topic_topic_comment_path(topic_comment.topic, topic_comment), method: :delete %>
-   <% end %>
+        <% if topic_comment.user == current_user %>
+          <%= link_to "削除", topic_topic_comment_path(topic_comment.topic, topic_comment), method: :delete, class: "btn btn-danger ml-3" %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
