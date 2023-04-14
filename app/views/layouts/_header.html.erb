@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <p class="mb-0 mr-5" style="height: 42px;line-height: 42px;">ようこそ！<%= current_user.name %>さん</p>
+          <p class="mb-0 mr-5 h5" style="height: 42px;line-height: 42px;">ようこそ！<%= current_user.name %>さん</p>
           <li class="nav-item">
             <%= link_to "投稿する", new_topic_path, class: "nav-link" %>
           </li>
