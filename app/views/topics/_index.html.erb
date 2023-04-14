@@ -8,12 +8,14 @@
           <% end %>
           <div class="card-body">
             <h5 class="card-title mb-3">お題： <%= topic.title %></h5>
-            <p class="card-text">ニックネーム：<%= topic.user.name %></p>
+            <p class="card-text">投稿者：<%= topic.user.name %></p>
             <%= link_to "#{topic.topic_comments.count} コメント", topic_path(topic.id), class: "btn btn-primary btn-sm" %>
           </div>
         </div>
       </div>
     <% end %>
-    <%= paginate topics, class: "justify-content-center" %>
+    <div class="mx-auto">
+      <%= paginate topics %>
+    </div>
   </div>
 </div>

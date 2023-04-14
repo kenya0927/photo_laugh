@@ -1,10 +1,11 @@
  <% topic.topic_comments.each do |topic_comment| %>
     <div class="card my-4">
       <div class="card-body">
-        <h5 class="card-title"><%= topic_comment.user.name %></h5>
-        <p class="card-text"><%= topic_comment.comment %></p>
+        <p class="card-text"><%= topic_comment.user.name %></p>
+        <h5 class="card-title"><%= topic_comment.comment %></h5>
         <p class="card-text text-muted"><%= topic_comment.created_at.strftime('%Y/%m/%d') %></p>
 
+        <!--ログインしていないユーザーにはカウント数のみ表示-->
         <% if user_signed_in? %>
           <% if Like.find_by(user_id: current_user.id, topic_id: topic.id, topic_comment_id: topic_comment.id) %>
             <%= link_to topic_topic_comment_like_path(topic, topic_comment, topic_comment.likes), { class: "like-link", method: :delete } do %>
