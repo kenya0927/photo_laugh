@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   #検索機能
   get 'search', to: "topics#search",as: 'search'
 
-  resources :users,only:[:show,:edit,:update]
+  resources :users,only:[:show,:edit,:update] do
+     get 'liked_comments', to: 'topic_comments#liked_comments'
+   end
 
   # ゲストユーザーログイン
   devise_scope :user do
@@ -19,6 +21,5 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'liked_comments', to: 'topic_comments#liked_comments'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

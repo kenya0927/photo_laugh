@@ -3,8 +3,8 @@
 <% @comments.each do |topic_comment| %>
 
 <div>
+<%= link_to topic_comment.comment, topic_path(topic_comment.topic) %>
 <%= topic_comment.user.name %>
-<%= topic_comment.comment %>
 <%= topic_comment.created_at.strftime('%Y/%m/%d') %>
 </div>
 
