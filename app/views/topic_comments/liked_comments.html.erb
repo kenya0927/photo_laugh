@@ -1,0 +1,12 @@
+<h2 class="mb-4 text-center w-25 h4 bg-light d-inline-block">いいね一覧</h2>
+
+<% @comments.each do |topic_comment| %>
+
+<div>
+<%= topic_comment.user.name %>
+<%= topic_comment.comment %>
+<%= topic_comment.created_at.strftime('%Y/%m/%d') %>
+</div>
+
+
+<% end %>

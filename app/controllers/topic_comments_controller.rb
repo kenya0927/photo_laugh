@@ -20,6 +20,10 @@ class TopicCommentsController < ApplicationController
     TopicComment.find(params[:id]).destroy
     redirect_to topic_path(params[:topic_id])
   end
+  
+  def liked_comments
+    @comments = TopicComment.joins(:likes).group('topic_comments.id').order('count(topic_comment_id) desc')
+  end
 
   private
 
