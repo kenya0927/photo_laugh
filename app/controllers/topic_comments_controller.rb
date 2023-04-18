@@ -8,7 +8,6 @@ class TopicCommentsController < ApplicationController
     comment = current_user.topic_comments.new(topic_comment_params)   #ログインしているユーザーによって作成されたコメントの生成
     comment.topic_id = @topic.id   #コメントと投稿の関連付け
     comment.save
-    flash[:notice] = "コメントの投稿に成功しました"
     render :comment
   end
 

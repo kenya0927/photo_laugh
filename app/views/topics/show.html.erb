@@ -1,7 +1,5 @@
 <h2 class="text-center w-25 h4 bg-light d-inline-block">投稿詳細</h2>
 
-<%= render 'layouts/errors', obj: @topic_comment %>
-
 <div class="row">
   <div class="col-md-6">
     <%= image_tag @topic.image, class: "img-fluid rounded" %>
@@ -21,6 +19,8 @@
 <div id="like_buttons_<%= @topic.id %>">
  <%= render 'likes/btn', topic: @topic %>
 </div>
+
+<%= render 'layouts/errors', obj: @topic_comment %>
 
 <div id="comment_area">
   <%= render 'topic_comments/form', topic: @topic,topic_comment: @topic_comment %>
