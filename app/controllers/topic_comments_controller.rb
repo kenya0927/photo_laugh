@@ -1,6 +1,6 @@
 class TopicCommentsController < ApplicationController
 
-  before_action :authenticate_user!,only:[:destroy]
+  before_action :authenticate_user!
 
   def create
     topic = Topic.find(params[:topic_id])

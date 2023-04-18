@@ -5,7 +5,7 @@ class LikesController < ApplicationController
     @topic_comment = TopicComment.find(params[:topic_comment_id])
     like = current_user.likes.new(topic_id: @topic.id,topic_comment_id: @topic_comment.id)
     like.save
-    redirect_to topic_path(@topic)
+    render :button
   end
 
   def destroy
@@ -13,7 +13,7 @@ class LikesController < ApplicationController
     @topic_comment = TopicComment.find(params[:topic_comment_id])
     like = current_user.likes.find_by(topic_id: @topic.id,topic_comment_id: @topic_comment.id)
     like.destroy
-    redirect_to topic_path(@topic)
+    render :button
   end
 
 end

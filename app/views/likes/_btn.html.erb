@@ -8,12 +8,12 @@
         <!--ログインしていないユーザーにはカウント数のみ表示-->
         <% if user_signed_in? %>
           <% if Like.find_by(user_id: current_user.id, topic_id: topic.id, topic_comment_id: topic_comment.id) %>
-            <%= link_to topic_topic_comment_like_path(topic, topic_comment, topic_comment.likes), { class: "like-link", method: :delete } do %>
+            <%= link_to topic_topic_comment_like_path(topic, topic_comment, topic_comment.likes),class: "like-link", method: :delete,remote: true do %>
               <i class="fas fa-heart text-danger" aria-hidden="true"></i>
             <% end %>
             <span class="ml-2"><%= topic_comment.likes.count %> いいね！</span>
           <% else %>
-            <%= link_to topic_topic_comment_likes_path(topic, topic_comment), { class: "like-link", method: :post } do %>
+            <%= link_to topic_topic_comment_likes_path(topic, topic_comment),class: "like-link", method: :post,remote: true do %>
               <i class="fas fa-heart" aria-hidden="true"></i>
             <% end %>
             <span class="ml-2"><%= topic_comment.likes.count %> いいね！</span>

@@ -57,6 +57,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
+gem 'jquery-rails'
+
 # メッセージの日本語化
 gem 'rails-i18n'
 
