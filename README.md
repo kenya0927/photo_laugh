@@ -21,6 +21,7 @@ SNS等には投稿できないけど、なぜか消せない写真を持って�
 - ER図 : https://drive.google.com/file/d/1hF1HoRUULfMLX8Jpy-js2mvr_FQLtwNh/view?usp=sharing
 - テーブル定義書 : https://docs.google.com/spreadsheets/d/1YuO5Yf9hhdtYGatDCPeCHlm7q8PhFVKwBEJ0scWGWHo/edit?usp=sharing
 - アプリケーション詳細設計 : https://docs.google.com/spreadsheets/d/1VH82mY8C__OEnKK7J0FWvC1n2vAZQPKWYXR2fnJpvP4/edit?usp=sharing
+- テスト仕様書 : https://docs.google.com/spreadsheets/d/1wV5HHD8hMz1_EySjNs6INgGsBmI6NmHT0OXjJrYNFms/edit?usp=sharing
 
 
 
