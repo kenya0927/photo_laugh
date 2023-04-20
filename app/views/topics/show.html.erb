@@ -20,7 +20,8 @@
  <%= render 'likes/btn', topic: @topic %>
 </div>
 
-<%= render 'layouts/errors', obj: @topic_comment %>
+
+<div id= "comment_error"><%= render 'layouts/errors', obj: @topic_comment %></div>
 
 <div id="comment_area">
   <%= render 'topic_comments/form', topic: @topic,topic_comment: @topic_comment %>

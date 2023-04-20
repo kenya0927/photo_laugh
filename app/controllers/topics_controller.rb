@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
 
-  before_action :authenticate_user!,only:[:edit,:update,:destroy]
+  before_action :authenticate_user!,only:[:create,:destroy,:update,:edit]
 
   def new
     @topic = Topic.new

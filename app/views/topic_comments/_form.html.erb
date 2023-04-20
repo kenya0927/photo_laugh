@@ -1,4 +1,8 @@
-<%= form_with(model: [topic, topic_comment], local: false, class: "my-4") do |f| %>
+ <% if user_signed_in? %>
+  <%= form_with(model: [topic, topic_comment], local: false, class: "my-4") do |f| %>
     <%= f.text_area :comment, rows: '5', placeholder: "ボケを入力してください", class: "form-control mb-2" %>
     <%= f.submit "ボケる！", class: "btn btn-primary" %>
+  <% end %>
+<% else %>
+  <%= link_to "コメントするにはこちらからログインしてください", new_user_session_path %>
 <% end %>

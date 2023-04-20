@@ -2,20 +2,18 @@
 ja:
   activerecord:
     models:
-     topic: 投稿
+      topic: 投稿
+      user: ユーザー
     attributes:
-     topic:
-      title: お題
-      image: 画像
-    models:
-     user: ユーザー
-    attributes:
-     user:
-      name: ニックネーム
-    devise:
-     sessions:
       user:
-       signed_in: ログインしました
+        name: ニックネーム
+      topic:
+        title: お題
+        image: 画像
+    devise:
+      sessions:
+        user:
+        signed_in: ログインしました
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
