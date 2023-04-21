@@ -4,10 +4,10 @@ class TopicCommentsController < ApplicationController
 
   def create
     @topic = Topic.find(params[:topic_id])
-    # @topic_comment = TopicComment.new
     @topic_comment = current_user.topic_comments.new(topic_comment_params)   #ログインしているユーザーによって作成されたコメントの生成
     @topic_comment.topic_id = @topic.id   #コメントと投稿の関連付け
     if @topic_comment.save
+       @topic_comment = TopicComment.new   # フォームのデータを空にする
     render :comment
     else
     render :error
@@ -17,7 +17,7 @@ class TopicCommentsController < ApplicationController
   def destroy
     @topic = Topic.find(params[:topic_id])
     TopicComment.find_by(id: params[:id], topic_id: params[:topic_id]).destroy
-     @topic_comment = TopicComment.new
+    @topic_comment = TopicComment.new
     render :comment
   end
 

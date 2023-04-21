@@ -4,12 +4,15 @@ ja:
     models:
       topic: 投稿
       user: ユーザー
+      topic_comment: コメント
     attributes:
       user:
         name: ニックネーム
       topic:
         title: お題
         image: 画像
+      topic_comment:
+        comment: コメント
     devise:
       sessions:
         user:

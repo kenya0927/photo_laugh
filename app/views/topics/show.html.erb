@@ -17,11 +17,12 @@
 </div>
 
 <div id="like_buttons_<%= @topic.id %>">
- <%= render 'likes/btn', topic: @topic %>
+  <%= render 'likes/btn', topic: @topic %>
 </div>
 
-
-<div id= "comment_error"><%= render 'layouts/errors', obj: @topic_comment %></div>
+<div id= "comment_error">
+  <%= render 'layouts/errors', obj: @topic_comment %>
+</div>
 
 <div id="comment_area">
   <%= render 'topic_comments/form', topic: @topic,topic_comment: @topic_comment %>

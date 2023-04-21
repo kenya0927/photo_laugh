@@ -31,8 +31,9 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:email)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
 
   # ゲストユーザーのユーザー編集画面へのURL直打ちを防ぐ
   def ensure_guest_user

@@ -13,7 +13,6 @@ class TopicsController < ApplicationController
        flash[:notice] = "投稿に成功しました"
     redirect_to topic_path(@topic)
     else
-      flash[:alert] = "投稿に失敗しました"
     render :new
     end
   end
