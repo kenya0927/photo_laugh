@@ -8,16 +8,15 @@ class User < ApplicationRecord
   validates :email, presence: true
 
 
-  has_many :topics,dependent: :destroy
-  has_many :topic_comments,dependent: :destroy
+  has_many :topics, dependent: :destroy
+  has_many :topic_comments, dependent: :destroy
   has_many :likes
 
   # ゲストユーザー機能
   def self.guest
-    find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
+    find_or_create_by!(name: "guestuser", email: "guest@example.com") do |user|
       user.password = SecureRandom.urlsafe_base64  # ランダムな文字列の生成
       user.name = "guestuser"
     end
   end
-
 end
