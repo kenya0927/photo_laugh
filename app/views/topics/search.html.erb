@@ -1,4 +1,4 @@
-<h2 class="text-center mb-4 w-25 h4 bg-light d-inline-block">検索結果</h2>
+<h2 class="text-center mb-4 w-25 h4 bg-light">検索結果</h2>
 
 <div class="row justify-content-center">
   <% if @topics.any? %>
@@ -6,7 +6,7 @@
       <div class="col-md-4 mb-4">
         <div class="card">
           <%= link_to topic_path(topic.id) do %>
-            <%= image_tag topic.image, class: "card-img-top", alt: "image", style: "height: 300px; object-fit: cover;" %>
+            <%= image_tag topic.image, class: "card-img-top", style: "height: 300px; object-fit: cover;" %>
           <% end %>
           <div class="card-body">
             <h5 class="card-title mb-3"><%= topic.title %></h5>

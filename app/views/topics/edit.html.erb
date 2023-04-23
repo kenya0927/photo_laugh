@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card p-4">
-        <h2 class="text-center w-25 h4 bg-light d-inline-block">投稿編集画面</h2>
+        <h2 class="text-center w-30 h4 bg-light">投稿編集画面</h2>
         <%= render 'layouts/errors', obj: @topic %>
         <%= form_with model: @topic, url: topic_path(@topic), method: :patch, html: {class: "form-group"} do |f| %>
           <h4 class="mb-3">画像</h4>

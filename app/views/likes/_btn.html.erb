@@ -3,7 +3,7 @@
       <div class="card-body">
         <p class="card-text"><%= topic_comment.user.name %></p>
         <h5 class="card-title"><%= topic_comment.comment %></h5>
-        <p class="card-text text-muted"><%= topic_comment.created_at.strftime('%Y/%m/%d') %></p>
+        <p class="card-text text-muted"><%= topic_comment.created_at.strftime("%Y/%m/%d") %></p>
 
         <!--ログインしていないユーザーにはカウント数のみ表示-->
         <% if user_signed_in? %>

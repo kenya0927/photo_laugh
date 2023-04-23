@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="mb-4 text-center w-25 h4 bg-light d-inline-block">マイページ</h2>
+  <h2 class="mb-4 text-center w-25 h4 bg-light">マイページ</h2>
   <div class="row mb-4">
     <div class="col-md-6">
       <div class="card">
@@ -26,6 +26,6 @@
     <% end %>
     <%= link_to "いいね一覧", user_liked_comments_path(@user), class: "btn btn-secondary" %>
   </div>
-  <h2 class="mb-4 text-center w-25 h4 bg-light d-inline-block">自分の投稿</h2>
+  <h2 class="mb-4 text-center w-25 h4 bg-light">自分の投稿</h2>
   <%= render 'topics/index', topics: @topics %>
 </div>
