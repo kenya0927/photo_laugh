@@ -23,6 +23,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @user = @topic.user
     @topic_comment = TopicComment.new
   end
 

@@ -1,3 +1,5 @@
 $('#comment_area').html("<%= j(render 'topic_comments/form', topic: @topic, topic_comment: @topic_comment) %>");
 
 $('#like_buttons_<%= @topic.id %>').html("<%= j(render 'likes/btn', topic: @topic) %>");
+
+$("#comment_error").html("");

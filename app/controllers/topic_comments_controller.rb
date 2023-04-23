@@ -8,9 +8,9 @@ class TopicCommentsController < ApplicationController
     @topic_comment.topic_id = @topic.id   #コメントと投稿の関連付け
     if @topic_comment.save
        @topic_comment = TopicComment.new   # フォームのデータを空にする
-    render :comment
+      render :comment
     else
-    render :error
+      render :error
     end
   end
 
@@ -23,8 +23,9 @@ class TopicCommentsController < ApplicationController
 
   # いいねしたコメントを取得
   def liked_comments
-    @comments = TopicComment.joins(:likes).group('topic_comments.id')
+    @comments = TopicComment.joins(:likes).where(likes: { user_id: current_user.id }).group('topic_comments.id')
   end
+
 
   private
 

@@ -13,10 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
-.pagination {
-  display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+.page {
+    display: flex;
+    justify-content: center;
 }
