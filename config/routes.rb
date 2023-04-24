@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # 検索機能
   get "search", to: "topics#search", as: "search"
 
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, only: [:index, :show, :edit, :update] do
      # いいねしたコメントの一覧ページ
      get "liked_comments", to: "topic_comments#liked_comments"
    end
