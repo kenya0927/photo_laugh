@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy, :update, :edit]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def new
     @topic = Topic.new
@@ -56,5 +57,13 @@ class TopicsController < ApplicationController
   private
     def topic_params
       params.require(:topic).permit(:image, :title)
+    end
+
+    def ensure_correct_user
+      @topic = Topic.find(params[:id])
+        if @topic.user != current_user
+        flash[:alert] = "他人の投稿は編集できません"
+        redirect_to root_path
+        end
     end
 end

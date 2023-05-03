@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     def ensure_guest_user
       @user = User.find(params[:id])
       if @user.name == "guestuser"
-        flash[:notice] = "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+        flash[:alert] = "ゲストユーザーはプロフィール編集画面へ遷移できません。"
         redirect_to root_path
       end
     end

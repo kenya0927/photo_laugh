@@ -23,7 +23,7 @@
         <% end %>
 
         <% if topic_comment.user == current_user %>
-          <%= link_to "コメントを削除", topic_topic_comment_path(topic_comment.topic, topic_comment), method: :delete,remote: true, class: "btn btn-danger ml-3" %>
+          <%= link_to "コメントを削除", topic_topic_comment_path(topic_comment.topic, topic_comment), method: :delete, data: { confirm: "本当に削除しますか？" },remote: true, class: "btn btn-danger ml-3" %>
         <% end %>
       </div>
     </div>
